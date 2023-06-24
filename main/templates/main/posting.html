@@ -1,11 +1,34 @@
+
+{% block content %}
 <html>
     <head>
-        <title>Posting!</title>
+        <title>Code Name: {{post.postname}} - CSS!</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/styles/default.min.css">
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/highlight.min.js"></script>
     </head>
     <body>
-        <h1>게시글 개별 페이지입니다</h1>
-        <p>{{post.postname}}</p>
-        <p>{{post.contents}}</p>
-        <a href="/blog/">목록</a>
+        <h1>Code 상세</h1>
+        <h4>코드명: {{post.postname}}</h4>
+        <h4>언어 종류 : {{post.kindcode}}</h4>
+        <h5>코드 내용</h5>
+        <div><pre><code>{{post.contents}}</code></pre></div>
+        {% if post.mainphoto %}
+             <p>첨부 사진</p>
+            <img src="{{ post.mainphoto.url }}" alt="" height="600">
+            <br>
+        {% endif %}
+        <a href="/blog/{{post.pk}}/remove" class="btn btn-danger">코드 삭제</a>
+        <a href="/blog/" class="btn btn-primary">코드 목록</a>
+        <script>hljs.highlightAll();</script>
     </body>
 </html>
+{% endblock %}
+
+<script>
+  document.addEventListener('DOMContentLoaded', (event) => {
+    const codeElement = document.getElementById('code-element');
+    hljs.highlightElement(codeElement);
+  });
+</script>
+

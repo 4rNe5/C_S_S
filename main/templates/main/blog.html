@@ -1,18 +1,75 @@
-ed!<html>
-    <head>
-        <title>Blog List</title>
-    </head>
-    <body>
-        <h1>게시판 페이지입니다</h1>
-        <!-- 게시판(postlist)의 게시글(list)을 하나씩 보여줍니다 -->
-        <!-- {와 %로 이루어진 구문 내부엔 파이썬이 사용됩니다 -->
-        <table>
-        {% for list in postlist %}
-            <!-- 게시글 클릭시 세부페이지로 넘어갑니다-->
-            <ul>
-                <li><a href="{{list.pk}}/">{{list.postname}}</a></li>
-            </ul>
-        {% endfor %}
-        </table>
-    </body>
+<html>
+<head>
+    <title>개시된 코드 목록 - CSS!</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        h1 {
+            margin-bottom: 30px;
+        }
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+        ul li {
+            background-color: #f2f2f2;
+            padding: 20px;
+            margin-bottom: 10px;
+            border-radius: 10px;
+            border: 2px solid #f2f2f2;
+            transition: all 0.3s;
+        }
+        ul li:hover {
+            border-color: #FF99CC;
+            box-shadow: 0 0 5px 2px #FF99CC;
+        }
+        .post-item {
+            display: flex;
+            justify-content: space-between;
+            font-size:16px;
+        }
+        .post-item a {
+            color: black;
+            text-decoration: none;
+        }
+        button {
+            display: inline-block;
+            background-color: #FF99CC;
+            color: white;
+            font-size: 16px;
+            padding: 10px 15px;
+            margin-top: 10px;
+            border-radius: 5px;
+            border: none;
+            text-decoration: none;
+        }
+        button:hover {
+            background-color: #FF3399;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<h1>업로드된 코드의 목록입니다</h1>
+<!-- 게시판(postlist)의 게시글(list)을 하나씩 보여줍니다 -->
+<!-- {와 %로 이루어진 구문 내부엔 파이썬이 사용됩니다 -->
+<ul>
+{% for list in postlist %}
+    <!-- 게시글 클릭시 세부페이지로 넘어갑니다-->
+    <li>
+        <div class="post-item">
+            <a href="{{list.pk}}/">{{list.postname}}</a>
+            <div>
+                언어 종류: {{list.kindcode}} |
+                이미지 첨부 유무: {{list.mainphoto|yesno:"있음,없음"}}
+            </div>
+        </div>
+    </li>
+{% endfor %}
+</ul>
+<button onclick="location.href='new_post/'">Code 업로드하기</button>
+</body>
 </html>
+

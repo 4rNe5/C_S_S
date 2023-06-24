@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>새로운 Code 업로드하기 - CSS!</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <style>
+        .form-group {
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+    <h1> Code 업로드</h1>
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="postname">Code 이름</label><br>
+            <input type="text" id="postname" name="postname" class="form-control" required><br>
+        </div>
+        <div class="form-group">
+            <label for="kindcode">언어 종류</label><br>
+            <select id="kindcode" name="kindcode" class="form-control" required>
+                <option value="">선택해주세요</option>
+                <option value="1c">1C</option>
+                <option value="abnf">ABNF</option>
+                <option value="accesslog">Access logs</option>
+                <option value="actionscript">ActionScript</option>
+                <option value="ada">Ada</option>
+                <option value="angelscript">AngelScript</option>
+                <option value="apache">Apache</option>
+                <option value="applescript">AppleScript</option>
+                <option value="arcade">Arcade</option>
+                <option value="arduino">Arduino</option>
+                <option value="armasm">ARM Assembly</option>
+                <option value="asciidoc">AsciiDoc</option>
+                <option value="aspect">AspectJ</option>
+                <option value="augmented">Augmented Backus-Naur f.</option>
+                <option value="autohotkey">AutoHotkey</option>
+                <option value="autoit">AutoIt</option>
+                <option value="avrasm">AVR Assembly</option>
+                <option value="awk">Awk</option>
+                <option value="axapta">Axapta</option>
+                <option value="b">Bash</option>
+                <option value="basic">Basic</option>
+                <option value="bnf">Backus-Naur f.</option>
+                <option value="brainfuck">Brainfuck</option>
+                <option value="c">C</option>
+                <option value="cal">C/AL</option>
+                <option value="capnproto">Cap’n Proto</option>
+                <option value="ceylon">Ceylon</option>
+                <option value="chapel">Chapel</option>
+                <option value="c_like">C-like</option>
+                <option value="c%23">C#</option>
+                <option value="c%2B%2B">C++</option>
+                <option value="cmake">CMake</option>
+                <option value="coffeescript">CoffeeScript</option>
+                <option value="clojure">Clojure</option>
+                <option value="clojure_repl">Clojure REPL</option>
+                <option value="crystal">Crystal</option>
+                <option value="csp">Content-Security-Policy</option>
+                <option value="css">CSS</option>
+                <option value="d">D</option>
+                <option value="dart">Dart</option>
+                <option value="diff">Diff</option>
+                <option value="django">Django</option>
+                <option value="dns">DNS Zone file</option>
+                <option value="dockerfile">Dockerfile</option>
+                <option value="dos">DOS .bat</option>
+                <option value="dsconfig">dsconfig</option>
+                <option value="dts">Device Tree</option>
+                <option value="dust">Dust</option>
+                <option value="elixir">Elixir</option>
+                <option value="elm">Elm</option>
+                <option value="ruby">Ruby</option>
+                <option value="erb">ERB</option>
+                <option value="erlang_repl">Erlang REPL</option>
+                <option value="erlang">Erlang</option>
+                <option value="excel">Excel</option>
+                <option value="fix">FIX</option>
+                <option value="flix">Flix</option>
+                <option value="fortran">Fortran</option>
+                <option value="fsharp">F#</option>
+                <option value="gams">GAMS</option>
+                <option value="gauss">GAUSS</option>
+                <option value="gcode">G-code</option>
+                <option value="gherkin">Gherkin</option>
+                <option value="glsl">GLSL</option>
+                <option value="gml">GML</option>
+                <option value="go">Go</option>
+                <option value="golo">Golo</option>
+                <option value="xml">XML/HTML</option>
+                <option value="gradle">Gradle</option>
+                <option value="groovy">Groovy</option>
+                <option value="plaintext">plaintext</option>
+                <option value="graphql">GraphQL</option>
+                <option value="haml">Haml</option>
+                <option value="handlebars">Handlebars</option>
+                <option value="haskell">Haskell</option>
+                <option value="haxe">Haxe</option>
+                <option value="ini">Ini</option>
+                <option value="inform7">Inform7</option>
+                <option value="irpf90">IRPF90</option>
+                <option value="java">Java</option>
+                <option value="javascript">JavaScript</option>
+                <option value="jboss_cli">Jboss CLI</option>
+                <option value="json">JSON</option>
+                <option value="julia">Julia</option>
+                <option value="julia_repl">Julia REPL</option>
+                <option value="kotlin">Kotlin</option>
+                <option value="tex">LaTeX</option>
+                <option value="ldif">LDIF</option>
+                <option value="leaf">Leaf</option>
+                <option value="less">Less</option>
+                <option value="lisp">Lisp</option>
+                <option value="livecodeserver">LiveCode</option>
+                <option value="livescript">LiveScript</option>
+                <option value="llvm">LLVM IR</option>
+                <option value="lsl">LSL</option>
+                <option value="lua">Lua</option>
+                <option value="makeml">Makefile</option>
+                <option value="markdown">Markdown</option>
+                <option value="mathematica">Mathematica</option>
+                <option value="perl">Perl</option>
+                <option value="matlab">Matlab</option>
+                <option value="maxscript">Maxscript</option>
+                <option value="mel">MEL</option>
+                <option value="mipsasm">MIPS asm</option>
+                <option value="mizar">Mizar</option>
+                <option value="qml">QML</option>
+                <option value="nsis">NSIS</option>
+                <option value="never">never</option>
+                <option value="nginx">Nginx</option>
+                <option value="nim">Nim</option>
+                <option value="nix">Nix</option>
+                <option value="n1ql">N1QL</option>
+                <option value="oczedit">#CZ/EDIT</option>
+                <option value="objectivec">Objective-C</option>
+                <option value="ocaml">OCaml</option>
+                <option value="openscad">OpenSCAD</option>
+                <option value="ruleslanguage">Oracle Rules</option>
+                <option value="oxygene">Oxygene</option>
+                <option value="parser3">Parser3</option>
+                <option value="pf">PF</option>
+                <option value="php">PHP</option>
+                <option value="php_template">PHP template</option>
+                <option value="pony">Pony</option>
+                <option value="pgsql">SQL</option>
+                <option value="powershell">PowerShell</option>
+                <option value="processing">Processing</option>
+                <option value="prolog">Prolog</option>
+                <option value="properties">Properties</option>
+                <option value="protobuf">Protocol Buffers</option>
+                <option value="puppet">Puppet</option>
+                <option value="purebasic">PureBASIC</option>
+                <option value="python">Python</option>
+                <option value="r">R</option>
+                <option value="reasonml">ReasonML</option>
+                <option value="vbscript">VBScript</option>
+                <option value="rib">RenderMan RIB</option>
+                <option value="rsl">RenderMan RSL</option>
+                <option value="graph">Robot Framework</option>
+                <option value="stylesheet">Stylesheet</option>
+                <option value="rust">Rust</option>
+                <option value="sas">SAS</option>
+                <option value="scss">SCSS</option>
+                <option value="sqf">SQF</option>
+                <option value="sql">SQL</option>
+                <option value="ssi">SSI</option>
+                <option value="stan">Stan</option>
+                <option value="stata">Stata</option>
+                <option value="step21">STEP Part 21</option>
+                <option value="stylus">Stylus</option>
+                <option value="subunit">SubUnit</option>
+                <option value="swift">Swift</option>
+                <option value="tcl">TCL</option>
+                <option value="thrift">Thrift</option>
+                <option value="tp">TP</option>
+                <option value="twig">Twig</option>
+                <option value="typescript">TypeScript</option>
+                <option value="vala">Vala</option>
+                <option value="vbnet">VB.Net</option>
+                <option value="velocity">Apache Velocity</option>
+                <option value="verilog">Verilog</option>
+                <option value="vhdl">VHDL</option>
+                <option value="vim">Vim Script</option>
+                <option value="x86asm">Intel x86 Assembly</option>
+                <option value="meson">Meson</option>
+                <option value="zephir">Zephir</option>
+            </select><br>
+        </div>
+        <div class="form-group">
+            <label for="contents">Main Code</label><br>
+            <textarea id="contents" rows="10" cols="50" name="contents" class="form-control" required></textarea><br>
+        </div>
+        <div class="form-group">
+            <label for="mainphoto">이미지 삽입</label><br>
+            <input type="file" id="mainphoto" name="mainphoto" onchange="loadFile(event)" required><br>
+            <img id="preview" src="#" alt="미리보기" height="100" style="display:none;">
+            <script>
+                function loadFile(event) {
+                    var preview = document.getElementById('preview');
+                    preview.src = URL.createObjectURL(event.target.files[0]);
+                    preview.style.display = "block";
+                }
+            </script>
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary">Code 업로드!</button>
+        </div>
+    </form>
+</body>
+</html>
