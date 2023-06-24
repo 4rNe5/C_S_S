@@ -8,6 +8,19 @@
         .form-group {
             margin-bottom: 15px;
         }
+        .file-input-wrapper {
+            position: relative;
+            overflow: hidden;
+        }
+        .file-input-wrapper input[type="file"] {
+            position: absolute;
+            top: 0;
+            left: 0;
+            min-width: 100%;
+            min-height: 100%;
+            opacity: 0;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
@@ -189,14 +202,17 @@
                 <option value="zephir">Zephir</option>
             </select><br>
         </div>
-        <div class="form-group">
-            <label for="contents">Main Code</label><br>
+     <div class="form-group">
+            <label for="contents">Code</label><br>
             <textarea id="contents" rows="10" cols="50" name="contents" class="form-control" required></textarea><br>
         </div>
         <div class="form-group">
-            <label for="mainphoto">이미지 삽입</label><br>
-            <input type="file" id="mainphoto" name="mainphoto" onchange="loadFile(event)" required><br>
-            <img id="preview" src="#" alt="미리보기" height="100" style="display:none;">
+            <label for="mainphoto">이미지 첨부하기</label><br>
+            <div class="file-input-wrapper">
+                <button type="button" class="btn btn-primary">파일 찾아보기</button>
+                <input type="file" id="mainphoto" name="mainphoto" onchange="loadFile(event)" required>
+            </div>
+            <img id="preview" src="#" alt="미리��기" height="100" style="display:none;">
             <script>
                 function loadFile(event) {
                     var preview = document.getElementById('preview');
@@ -205,9 +221,9 @@
                 }
             </script>
         </div>
-        <div class="form-group">
-            <button type="submit" class="btn btn-primary">Code 업로드!</button>
-        </div>
-    </form>
-</body>
+          <div class="form-group">
+              <button type="submit" class="btn btn-primary">Code 업로드!</button>
+          </div>
+      </form>
+  </body>
 </html>
