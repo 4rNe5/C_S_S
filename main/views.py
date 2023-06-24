@@ -1,9 +1,13 @@
 from django.shortcuts import render
+from .models import Post
 
-# Create your views here.
 def index(request):
-  return render(request, 'main/index.html')
+    return render(request, 'main/index.html')
 
-# blog.html 페이지를 부르는 blog 함수
 def blog(request):
-    return render(request, 'main/blog.html')
+    postlist = Post.objects.all()
+    return render(request, 'main/blog.html', {'postlist': postlist})
+
+def posting(request, pk):
+    post = Post.objects.get(pk=pk)
+    return render(request, 'main/posting.html', {'post': post})
