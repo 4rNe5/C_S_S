@@ -1,4 +1,3 @@
-
 {% block content %}
 <html>
     <head>
@@ -8,18 +7,18 @@
         <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/highlight.min.js"></script>
     </head>
     <body>
-        <h1>Code 상세</h1>
-        <h4>코드명: {{post.postname}}</h4>
-        <h4>언어 종류 : {{post.kindcode}}</h4>
+        <h1>Code 상세정보</h1>
+        <h4>코드 이름: {{post.postname}}</h4>
+        <h4>사용 언어 : {{post.kindcode}}</h4>
         <h5>코드 내용</h5>
         <div><pre><code>{{post.contents}}</code></pre></div>
         {% if post.mainphoto %}
-             <p>첨부 사진</p>
+             <p>첨부된 사진</p>
             <img src="{{ post.mainphoto.url }}" alt="" height="600">
             <br>
         {% endif %}
-        <a href="/blog/{{post.pk}}/remove" class="btn btn-danger">코드 삭제</a>
-        <a href="/blog/" class="btn btn-primary">코드 목록</a>
+        <a href="/blog/{{post.pk}}/remove" class="btn btn-danger">코드 삭제하기</a>
+        <a href="/blog/" class="btn btn-primary">코드 목록으로</a>
         <script>hljs.highlightAll();</script>
     </body>
 </html>

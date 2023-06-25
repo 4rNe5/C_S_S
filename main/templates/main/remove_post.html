@@ -2,15 +2,15 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>{{ Post.postname }} 삭제 확인 - CSS!</title>
+    <title>{{ Post.postname }} 코드 삭제 확인 - CSS!</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 </head>
 <body>
     <form method="POST">
         {% csrf_token %}
-        <h2>{{ Post.postname }} 코드를 정말 삭제하시겠어요?</h2>
-        <h4> 결심이 섰다면 아래의 버튼을 눌러주세요!</h4>
-        <button type="submit" class="btn btn-danger">코드 삭제</button>
+        <h2>{{ Post.postname }} 코드를 정말로 삭제하시겠어요?</h2>
+        <h4> 삭제할 결심이 섰다면 아래의 버튼을 눌러주세요!</h4>
+        <button type="submit" class="btn btn-danger">코드 삭제하기</button>
     </form>
 </body>
 </html>

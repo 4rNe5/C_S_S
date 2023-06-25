@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>새로운 Code 업로드하기 - CSS!</title>
+    <title>새로운 Code 업로드 - CSS!</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <style>
         .form-group {
@@ -24,7 +24,7 @@
     </style>
 </head>
 <body>
-    <h1> Code 업로드</h1>
+    <h1> Code 업로드하기</h1>
     <form method="POST" enctype="multipart/form-data">
         {% csrf_token %}
         <div class="form-group">
@@ -32,9 +32,9 @@
             <input type="text" id="postname" name="postname" class="form-control" required><br>
         </div>
         <div class="form-group">
-            <label for="kindcode">언어 종류</label><br>
+            <label for="kindcode"> 사용 언어 </label><br>
             <select id="kindcode" name="kindcode" class="form-control" required>
-                <option value="">선택해주세요</option>
+                <option value="">사용 언어를 선택해주세요</option>
                 <option value="1c">1C</option>
                 <option value="abnf">ABNF</option>
                 <option value="accesslog">Access logs</option>
@@ -210,7 +210,7 @@
             <label for="mainphoto">이미지 첨부하기</label><br>
             <div class="file-input-wrapper">
                 <button type="button" class="btn btn-primary">파일 찾아보기</button>
-                <input type="file" id="mainphoto" name="mainphoto" onchange="loadFile(event)" required>
+                <input type="file" id="mainphoto" name="mainphoto" onchange="loadFile(event)">
             </div>
             <img id="preview" src="#" alt="미리보기" height="100" style="display:none;">
             <script>
